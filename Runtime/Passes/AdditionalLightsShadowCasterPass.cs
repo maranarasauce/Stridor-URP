@@ -409,7 +409,7 @@ namespace UnityEngine.Rendering.Universal.Internal
 
             if (!m_IssuedMessageAboutShadowMapsRescale && shadowSlicesScaleFactor > 1)
             {
-                Debug.Log($"Reduced additional punctual light shadows resolution by {shadowSlicesScaleFactor} to make {totalShadowSlicesCount} shadow maps fit in the {atlasSize}x{atlasSize} shadow atlas. To avoid this, increase shadow atlas size, decrease big shadow resolutions, or reduce the number of shadow maps active in the same frame");
+                Debug.LogWarning($"Reduced additional punctual light shadows resolution by {shadowSlicesScaleFactor} to make {totalShadowSlicesCount} shadow maps fit in the {atlasSize}x{atlasSize} shadow atlas. To avoid this, increase shadow atlas size, decrease big shadow resolutions, or reduce the number of shadow maps active in the same frame");
                 m_IssuedMessageAboutShadowMapsRescale = true; // Only output this once per shadow requests configuration
             }
         }
@@ -643,7 +643,7 @@ namespace UnityEngine.Rendering.Universal.Internal
                     if (!m_IssuedMessageAboutShadowSlicesTooMany)
                     {
                         // This case can especially happen in Deferred, where there can be a high number of visibleLights
-                        Debug.Log($"There are too many shadowed additional punctual lights active at the same time, URP will not render all the shadows. To ensure all shadows are rendered, reduce the number of shadowed additional lights in the scene ; make sure they are not active at the same time ; or replace point lights by spot lights (spot lights use less shadow maps than point lights).");
+                        Debug.LogWarning($"There are too many shadowed additional punctual lights active at the same time, URP will not render all the shadows. To ensure all shadows are rendered, reduce the number of shadowed additional lights in the scene ; make sure they are not active at the same time ; or replace point lights by spot lights (spot lights use less shadow maps than point lights).");
                         m_IssuedMessageAboutShadowSlicesTooMany = true; // Only output this once
                     }
                     break;

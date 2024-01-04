@@ -173,7 +173,7 @@ static class StaticBatchingSortingPatch
     static GameObject[] SortGameObjectsForStaticBatching(GameObject[] gameObjects, [UsedImplicitly] object sorter)
     {
         bool isBuildingPlayer = sorter.GetType().Name == "EditorStaticBatcherGOSorter";
-        Debug.Log("Executing Static Batching");
+		
         var gameObjectsOrderedByMaterialId = isBuildingPlayer
             ? gameObjects.OrderBy(x => GetMaterialIdAtBuildTime(GetRenderer(x)))
             : gameObjects.OrderBy(x => GetMaterialId(GetRenderer(x)));
