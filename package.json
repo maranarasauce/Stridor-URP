@@ -1,7 +1,7 @@
 {
   "name": "com.unity.render-pipelines.universal",
   "description": "Fork of SLZ's modified URP for Project Stridor",
-  "version": "8148.0.3-2",
+  "version": "8148.0.3-3",
   "unity": "2021.2",
   "displayName": "Stridor URP",
   "dependencies": {
